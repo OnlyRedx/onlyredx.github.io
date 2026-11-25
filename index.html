@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chaves Galang's Portfolio</title>
+    
+    <!-- SEO & Metadata -->
+    <title>Chaves Galang | Cybersecurity Student & Analyst Portfolio</title>
+    <meta name="description" content="Portfolio of Chaves Galang, a Cybersecurity student at Red River College specializing in network monitoring, digital forensics, threat hunting, and security automation.">
+    <meta property="og:title" content="Chaves Galang | Cybersecurity Portfolio">
+    <meta property="og:description" content="Cybersecurity student specializing in network monitoring, digital forensics, and security automation. Your shield in the digital storm.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chaves.uu.me/">
+    
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Minimalist modern sans font: Inter (clean and technical) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Simple icons (Feather style via Unicode / minimal) -->
+    
     <style>
         /* ---------- RESET & GLOBAL ---------- */
         * {
@@ -26,6 +35,8 @@
             line-height: 1.45;
             font-weight: 400;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* subtle container */
@@ -46,7 +57,6 @@
             line-height: 1.1;
             font-weight: 700;
             margin-bottom: 0.6rem;
-            letter-spacing: -0.02em;
         }
 
         h2 {
@@ -102,23 +112,24 @@
             gap: 1.8rem;
         }
 
-            .nav-links a {
-                text-decoration: none;
-                color: #3e5e70;
-                font-size: 0.9rem;
-                font-weight: 500;
-                border-bottom: 1px solid transparent;
-                transition: border 0.2s;
-            }
+        .nav-links a {
+            text-decoration: none;
+            color: #3e5e70;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s, color 0.2s;
+        }
 
-                .nav-links a:not(.contact-btn):hover {
-                    border-bottom-color: #1e2a3a;
-                    color: #0f2c3b;
-                }
+        .nav-links a:not(.contact-btn):hover {
+            border-bottom-color: #1e2a3a;
+            color: #0f2c3b;
+        }
+
         /* contact button */
         .contact-btn {
             background: #1e2a3a;
-            color: white !important;
+            color: #ffffff !important;
             padding: 0.45rem 1.2rem;
             border-radius: 40px;
             font-weight: 500;
@@ -131,33 +142,21 @@
             font-family: monospace;
         }
 
-            .contact-btn:hover {
-                background: #0f2c3b;
-                transform: translateY(-1px);
-                border-bottom-color: transparent !important;
-            }
-
-        @media (max-width: 620px) {
-            .site-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                margin-top: 0.5rem;
-                flex-wrap: wrap;
-            }
+        .contact-btn:hover {
+            background: #0f2c3b;
+            transform: translateY(-1px);
+            border-bottom-color: transparent !important;
         }
 
         /* ---------- LAYOUT SECTIONS ---------- */
-        section {
+        main section {
             padding: 4rem 0 3rem 0;
             border-bottom: 1px solid #eef2f5;
         }
 
-            section:last-of-type {
-                border-bottom: none;
-            }
+        main section:last-of-type {
+            border-bottom: none;
+        }
 
         .hero {
             padding: 4.5rem 0 1.8rem 0;
@@ -178,13 +177,15 @@
             padding: 1.6rem 1.5rem;
             border: 1px solid #eef2f8;
             box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
         }
 
-            .project-card:hover {
-                border-color: #cbdde9;
-                box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
-                transform: translateY(-3px);
-            }
+        .project-card:hover {
+            border-color: #cbdde9;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
 
         .project-year {
             font-size: 0.7rem;
@@ -218,153 +219,106 @@
             line-height: 1.5;
             color: #2d3b44;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
-
-        .project-link {
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #0f2c3b;
-            border-bottom: 1.2px solid #bbd0dd;
-            transition: border 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-family: monospace;
-        }
-
-            .project-link:hover {
-                border-bottom-color: #0a2c3b;
-                color: #000;
-            }
 
         /* ---------- Skills & tools ---------- */
-        .skill-section {
-            margin: 1rem 0;
-        }
-
-        .skills-badge {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
+        .skills-hint {
+            font-size: 0.85rem;
+            color: #6a7f8c;
+            margin-top: -0.5rem;
             margin-bottom: 1.5rem;
+            font-family: monospace;
         }
 
-        .skill-badge {
-            background: #f8fafc;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .skill-card {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            perspective: 1000px;
+            height: 105px;
+            font-family: inherit;
+            outline: none;
+            width: 100%;
+        }
+
+        .skill-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .skill-card:hover .skill-card-inner,
+        .skill-card:focus-visible .skill-card-inner,
+        .skill-card.is-flipped .skill-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .skill-card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
             border: 1px solid #e2e8f0;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .skill-card-front {
+            background: #f8fafc;
+            color: #0f2c3f;
+        }
+
+        .skill-card.is-highlight .skill-card-front {
+            background: #ecfdf5;
+            border-color: #b9e0d0;
+        }
+
+        .skill-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
             font-weight: 500;
             font-family: monospace;
-            color: #0f2c3f;
             letter-spacing: -0.2px;
+            line-height: 1.2;
         }
 
-            .skill-badge.highlight {
-                background: #ecfdf5;
-                border-color: #b9e0d0;
-            }
+        .skill-card-back {
+            background: #1e2a3a;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            border-color: #1e2a3a;
+        }
 
-        /* ---------- Flip Animation For Skills & Tools ---------- */ 
-        .skills-hint {
-        font-size: 0.85rem;
-        color: #6a7f8c;
-        margin-top: -0.5rem;
-        margin-bottom: 1.5rem;
-        font-family: monospace;
-    }
+        .skill-card-back p {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            margin: 0;
+            color: #e2e8f0;
+        }
 
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.2rem;
-        margin-top: 1rem;
-    }
-
-    .skill-card {
-        background: transparent;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-        perspective: 1000px; /* Gives the 3D depth */
-        height: 105px; /* Keeps all cards uniform height */
-        font-family: inherit;
-        outline: none;
-    }
-
-    .skill-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-        transform-style: preserve-3d; /* Ensures children stay in 3D space */
-    }
-
-    /* Flip action on hover, focus (keyboard), or click (JS mobile) */
-    .skill-card:hover .skill-card-inner,
-    .skill-card:focus-visible .skill-card-inner,
-    .skill-card.is-flipped .skill-card-inner {
-        transform: rotateY(180deg);
-    }
-
-    .skill-card-face {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        box-sizing: border-box;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
-
-    /* --- FRONT FACE --- */
-    .skill-card-front {
-        background: #f8fafc;
-        color: #0f2c3f;
-    }
-
-    .skill-card.is-highlight .skill-card-front {
-        background: #ecfdf5;
-        border-color: #b9e0d0;
-    }
-
-    .skill-emoji {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .skill-name {
-        font-size: 0.85rem;
-        font-weight: 500;
-        font-family: monospace;
-        letter-spacing: -0.2px;
-        line-height: 1.2;
-    }
-
-    /* --- BACK FACE --- */
-    .skill-card-back {
-        background: #1e2a3a;
-        color: #ffffff;
-        transform: rotateY(180deg);
-        border-color: #1e2a3a;
-    }
-
-    .skill-card-back p {
-        font-size: 0.75rem;
-        line-height: 1.4;
-        margin: 0;
-        color: #e2e8f0;
-    }
         /* ----- about + contact ----- */
         .about-wrapper {
             display: flex;
@@ -375,15 +329,15 @@
 
         .bio {
             flex: 2;
-            min-width: 220px;
+            min-width: 280px;
         }
 
-            .bio p {
-                margin-bottom: 1.2rem;
-                font-size: 1rem;
-                line-height: 1.55;
-                color: #253c48;
-            }
+        .bio p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: #253c48;
+        }
 
         .contact-info {
             flex: 1.2;
@@ -391,37 +345,38 @@
             padding: 1.6rem 1.8rem;
             border-radius: 28px;
             border: 1px solid #eef2f6;
+            min-width: 280px;
         }
 
-            .contact-info h3 {
-                font-size: 1.1rem;
-                margin-bottom: 1.2rem;
-                font-weight: 600;
-                font-family: monospace;
-                letter-spacing: -0.2px;
-            }
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            font-family: monospace;
+            letter-spacing: -0.2px;
+        }
 
         .contact-list {
             list-style: none;
         }
 
-            .contact-list li {
-                margin-bottom: 0.9rem;
-            }
+        .contact-list li {
+            margin-bottom: 0.9rem;
+        }
 
-            .contact-list a {
-                text-decoration: none;
-                color: #1b3b4f;
-                font-size: 0.9rem;
-                border-bottom: 1px dotted #cbdde6;
-                transition: border 0.2s;
-                font-weight: 450;
-            }
+        .contact-list a {
+            text-decoration: none;
+            color: #1b3b4f;
+            font-size: 0.9rem;
+            border-bottom: 1px dotted #cbdde6;
+            transition: border 0.2s, color 0.2s;
+            font-weight: 450;
+        }
 
-                .contact-list a:hover {
-                    border-bottom-color: #0f3b4f;
-                    color: #091e28;
-                }
+        .contact-list a:hover {
+            border-bottom-color: #0f3b4f;
+            color: #091e28;
+        }
 
         .small-note {
             font-size: 0.75rem;
@@ -429,20 +384,28 @@
             margin-top: 1.2rem;
             border-top: 1px solid #edf2f7;
             padding-top: 1rem;
+            line-height: 1.5;
         }
 
-        .cert-badge {
-            background: #fefce8;
-            border-radius: 48px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.7rem;
-            font-weight: 500;
-            display: inline-block;
-            margin-top: 0.6rem;
+        .cta-button {
+            background: #1e2a3a;
+            color: #ffffff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.8rem;
             font-family: monospace;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.2s, transform 0.05s;
         }
 
-        /* footer */
+        .cta-button:hover {
+            background: #0f2c3b;
+            transform: translateY(-1px);
+        }
+
+        /* ---------- FOOTER ---------- */
         .footer {
             padding: 2rem 0 3rem 0;
             text-align: center;
@@ -452,7 +415,7 @@
             margin-top: 0.5rem;
         }
 
-        /* responsive */
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 750px) {
             .container {
                 padding: 0 1.2rem;
@@ -462,7 +425,7 @@
                 font-size: 2.6rem;
             }
 
-            section {
+            main section {
                 padding: 3rem 0 2rem;
             }
 
@@ -473,9 +436,19 @@
             .about-wrapper {
                 flex-direction: column;
             }
+            
+            .site-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 0.5rem;
+                flex-wrap: wrap;
+            }
         }
 
-        /* micro details */
+        /* ---------- ACCESSIBILITY & MICRO DETAILS ---------- */
         hr {
             display: none;
         }
@@ -492,55 +465,44 @@
         a {
             text-decoration-skip-ink: auto;
         }
+
+        a:focus-visible, 
+        button:focus-visible, 
+        .project-card:focus-within {
+            outline: 2px solid #1c5f7a;
+            outline-offset: 3px;
+            border-radius: 8px;
+        }
     </style>
-    <!-- ============ JAVASCRIPT FOR TOUCH DEVICES ============ -->
-<script>
-    // On mobile, hover isn't reliable, so we toggle the flip on click/tap
-    document.querySelectorAll('.skill-card').forEach(card => {
-        card.addEventListener('click', function() {
-            this.classList.toggle('is-flipped');
-            
-            // Accessibility: update aria-pressed state
-            const isPressed = this.getAttribute('aria-pressed') === 'true';
-            this.setAttribute('aria-pressed', !isPressed);
-        });
-    });
-</script>
 </head>
 <body>
 
     <div class="container">
-        <!-- header with "contact me" button on top right -->
-        <div class="site-header">
-            <div class="logo"><a href="#"><span style="color: #D62503">chaves</span>.galang</a></div>
-            <div class="nav-links">
-                <!--<a href="#">projects</a>
-                <a href="#">resume</a> -->
-                <!-- CONTACT ME BUTTON (links to contact page) -->
-                <a href="./contact-form" class="contact-btn">📡 contact me</a>
+        <!-- Header -->
+        <header class="site-header">
+            <div class="logo">
+                <a href="./"><span style="color: #D62503">chaves</span>.galang</a>
             </div>
-        </div>
-        <div class="container">
-            <!-- Hero / name + focus -->
-            <div class="hero">
-                <h1>Chaves Galang</h1>
-                <div class="subhead">
-                    Your shield in the digital storm.
-                </div>
-                <div class="nav-links">
-                    <!--<a href="#">projects</a>
-                    <a href="#">resume</a> -->
-                </div>
-            </div>
-        </div>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="./contact-form.html" class="contact-btn">📡 contact me</a>
+            </nav>
+        </header>
 
-        <!-- PROJECTS section: tailored to cybersecurity student work (labs, scripts, tools) -->
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Chaves Galang</h1>
+            <p class="subhead">Your shield in the digital storm.</p>
+        </section>
+    </div>
+
+    <main>
+        <!-- PROJECTS section -->
         <section>
             <div class="container">
                 <h2>Security Projects</h2>
                 <div class="projects-grid">
-                    <!-- project 1: SIEM Lab -->
-                    <div class="project-card">
+                    <!-- Project 1 -->
+                    <article class="project-card">
                         <div class="project-year">2025</div>
                         <h3>Mini SOC Lab</h3>
                         <div class="project-tags">
@@ -553,10 +515,10 @@
                         <p class="project-desc">
                             Built a local security operation center lab using a variety consisting of 3 virtual machines. Ingested Wazuh logs & Windows events, created custom dashboards for detecting brute-force patterns and lateral movement.
                         </p>
-                        <!-- href="#" class="project-link">↘ case notes → -->
-                    </div>
-                    <!-- project 2: Autopsy Forensic Investigation -->
-                    <div class="project-card">
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
                         <div class="project-year">2026</div>
                         <h3>Autopsy · Digital Forensic Assignment</h3>
                         <div class="project-tags">
@@ -567,10 +529,10 @@
                         <p class="project-desc">
                             Used the Autopsy computer program to conduct a forensic investigation with a precompiled virtual machine file.
                         </p>
-                        <!-- href="#" class="project-link">↘ repository → -->
-                    </div>
-                    <!-- Project 3: Analysis of Packets with Wireshark-->
-                     <div class="project-card">
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
                         <div class="project-year">2026</div>
                         <h3>Wireshark Packet Analysis</h3>
                         <div class="project-tags">
@@ -583,167 +545,168 @@
                         <p class="project-desc">
                             Analyzed network traffic using Wireshark to identify potential security threats and anomalies in packet data. Documented my findings and provided associated filters with frame numbers. 
                         </p>
-                        <!-- href="#" class="project-link">↘ case notes → -->
-                    </div>
-                    <!-- Project 4: Enterprise Identity Security Transformation -->
-                     <div class="project-card">
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card">
                         <div class="project-year">2026</div>
                         <h3>Enterprise Identity Security Transformation</h3>
                         <div class="project-tags">
                             <span class="tag">Identity & Access Management</span>
                             <span class="tag">Group Policy</span>
                             <span class="tag">PowerShell Scripting / Security Automation</span>
-                            <span class="tag">Log Analysis and Security Montioring</span>
+                            <span class="tag">Log Analysis and Security Monitoring</span>
                             <span class="tag">Access Recertification & Risk Remediation</span>
                         </div>
                         <p class="project-desc">
                             Developed a security transformation initiative to secure enterprise identities within a fictional financial institution. Implemented an identity and access management strategy including setting up group policies, using PowerShell to automate security, analysing logs and implementing an access recertification process.
                         </p>
-                        <!-- href="#" class="project-link">↘ case notes → -->
+                    </article>
+                </div> <!-- Close projects-grid -->
+            </div> <!-- Close container -->
         </section>
 
-        <!-- SKILLS & TOOLS: show technical arsenal (cybersecurity oriented) -->
+        <!-- SKILLS & TOOLS -->
         <section>
-        <div class="container">
-        <h2>Core Competencies</h2>
-        
-        <p class="skills-hint">↻ hover (or tap) a card to learn more</p>
+            <div class="container">
+                <h2>Core Competencies</h2>
+                <p class="skills-hint">↻ hover (or tap) a card to learn more</p>
 
-        <div class="skills-grid">
-            <!-- 1 -->
-            <button type="button" class="skill-card is-highlight" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🛡️</span>
-                        <span class="skill-name">Network Defense</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Putting safeguards in place to prevent unauthorised access, cyber attacks and misuse of a computer network, including infrastructure, data and users.</p>
-                    </div>
-                </div>
-            </button>
+                <div class="skills-grid">
+                    <!-- Skill 1 -->
+                    <button type="button" class="skill-card is-highlight" aria-pressed="false" aria-label="Toggle details for Network Defense">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🛡️</span>
+                                <span class="skill-name">Network Defense</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Putting safeguards in place to prevent unauthorised access, cyber attacks and misuse of a computer network, including infrastructure, data and users.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 2 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🔎</span>
-                        <span class="skill-name">Data Management &amp; Analysis</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Collecting, organising, storing and analysing data securely to gather useful insights.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 2 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Data Management and Analysis">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🔎</span>
+                                <span class="skill-name">Data Management & Analysis</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Collecting, organising, storing and analysing data securely to gather useful insights.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 3 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🔒</span>
-                        <span class="skill-name">Incident Response</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>A defined process for identifying, containing, eliminating and recovering from a cyber security breach or attack.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 3 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Incident Response">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🔒</span>
+                                <span class="skill-name">Incident Response</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>A defined process for identifying, containing, eliminating and recovering from a cyber security breach or attack.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 4 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">👨🏽‍💻</span>
-                        <span class="skill-name">Technical Support</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Helping users solve problems with their hardware, software and network.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 4 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Technical Support">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">👨🏽‍💻</span>
+                                <span class="skill-name">Technical Support</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Helping users solve problems with their hardware, software and network.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 5 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🔟</span>
-                        <span class="skill-name">OWASP Top 10</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>A document that is regularly updated containing standard information on the most critical security risks to web applications.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 5 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for OWASP Top 10">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🔟</span>
+                                <span class="skill-name">OWASP Top 10</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>A document that is regularly updated containing standard information on the most critical security risks to web applications.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 6 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🕵🏻‍♂️</span>
-                        <span class="skill-name">Forensics</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Gathering, preserving, analysing and presenting digital evidence from computers, networks and storage.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 6 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Forensics">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🕵🏻‍♂️</span>
+                                <span class="skill-name">Forensics</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Gathering, preserving, analysing and presenting digital evidence from computers, networks and storage.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 7 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🛜</span>
-                        <span class="skill-name">Networking</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Connecting, configuring and managing devices to allow them to communicate with one another.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 7 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Networking">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🛜</span>
+                                <span class="skill-name">Networking</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Connecting, configuring and managing devices to allow them to communicate with one another.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 8 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">⚙️</span>
-                        <span class="skill-name">Security Automation</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Using technology to perform security tasks with little or no interaction from humans.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 8 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Security Automation">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">⚙️</span>
+                                <span class="skill-name">Security Automation</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Using technology to perform security tasks with little or no interaction from humans.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 9 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">📊</span>
-                        <span class="skill-name">Risk Identification &amp; Management</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>A defined process to identify possible threats to an organisations assets, analyse the impact of these threats and then implement controls to bring risk down to an acceptable level.</p>
-                    </div>
-                </div>
-            </button>
+                    <!-- Skill 9 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Risk Identification and Management">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">📊</span>
+                                <span class="skill-name">Risk Identification & Management</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>A defined process to identify possible threats to an organisation's assets, analyse the impact of these threats and then implement controls to bring risk down to an acceptable level.</p>
+                            </div>
+                        </div>
+                    </button>
 
-            <!-- 10 -->
-            <button type="button" class="skill-card" aria-pressed="false">
-                <div class="skill-card-inner">
-                    <div class="skill-card-face skill-card-front">
-                        <span class="skill-emoji">🤹🏽‍♂️</span>
-                        <span class="skill-name">Adaptability</span>
-                    </div>
-                    <div class="skill-card-face skill-card-back">
-                        <p>Quickly learning new skills, adapting to changes and being able to change strategy when unexpected issues arise.</p>
-                    </div>
-                </div>
-            </button>
-            </div>
-            </div>
-            </section>
+                    <!-- Skill 10 -->
+                    <button type="button" class="skill-card" aria-pressed="false" aria-label="Toggle details for Adaptability">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-face skill-card-front">
+                                <span class="skill-emoji" aria-hidden="true">🤹🏽‍♂️</span>
+                                <span class="skill-name">Adaptability</span>
+                            </div>
+                            <div class="skill-card-face skill-card-back">
+                                <p>Quickly learning new skills, adapting to changes and being able to change strategy when unexpected issues arise.</p>
+                            </div>
+                        </div>
+                    </button>
+                </div> <!-- Close skills-grid -->
+            </div> <!-- Close container -->
+        </section>
 
-        <!-- ABOUT + CONTACT (tailored cyber student vibe) -->
+        <!-- ABOUT + CONTACT -->
         <section>
             <div class="container">
                 <div class="about-wrapper">
@@ -757,56 +720,53 @@
                             Passionate about open-source intelligence (OSINT) and threat intelligence feeds, I enjoy participating in demonstrations.
                         </p>
                         <p>
-                            🧠 Currently: finishing the Cybersecurity course at Red River College and broadening my knowledge on Cybersecurity. Looking for entry-level security analyst or SOC internship roles.
+                            🧠 <strong>Currently:</strong> finishing the Cybersecurity course at Red River College and broadening my knowledge on Cybersecurity. Looking for entry-level security analyst or SOC internship roles.
                         </p>
-                        <div style="margin-top: 1rem; font-size:0.85rem; color:#3b6b84;">
+                        <div style="margin-top: 1rem; font-size: 0.85rem; color: #3b6b84;">
                             <span>🔍 "Simplicity is the soul of efficiency." — secure, minimal, resilient.</span>
                         </div>
                     </div>
-                    <div class="contact-info">
+                    
+                    <aside class="contact-info">
                         <h3>📡 Connect / Contact</h3>
                         <ul class="contact-list">
                             <li>✉️ <a href="mailto:contact@chaves.uu.me">contact@chaves.uu.me</a></li>
-                            <li>🐙 <a href="https://github.com/OnlyRedx" aria-label="GitHub Profile">github / OnlyRedx</a></li>
-                            <li>🔗 <a href="https://www.linkedin.com/in/chaves-galang/" aria-label="LinkedIn Profile">linkedin · /in/chaves-galang</a></li>
-                            <!-- <li>📄 <a href="#" aria-label="Resume/CV">resume →</a></li> -->
-                            <li>💬 <a href="https://tryhackme.com/p/creativechaves" aria-label="TryHackMe profile">tryhackme: creativechaves</a></li>
+                            <li>🐙 <a href="https://github.com/OnlyRedx" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (opens in new tab)">github / OnlyRedx</a></li>
+                            <li>🔗 <a href="https://www.linkedin.com/in/chaves-galang/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile (opens in new tab)">linkedin · /in/chaves-galang</a></li>
+                            <li>💬 <a href="https://tryhackme.com/p/creativechaves" target="_blank" rel="noopener noreferrer" aria-label="TryHackMe profile (opens in new tab)">tryhackme: creativechaves</a></li>
                         </ul>
                         <div class="small-note">
                             📍 Based in Winnipeg, MB (open to remote & hybrid internships).<br>
-                            ⏳ Currently looking for opportunites
+                            ⏳ Currently looking for opportunities.
                         </div>
                         <div style="margin-top: 1rem; text-align: center;">
-                            <a href="./contact-form" style="background:#1e2a3a; color:white; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-size:0.8rem; font-family: monospace; display: inline-block;">✉️ go to contact form →</a>
+                            <a href="./contact-form.html" class="cta-button">✉️ go to contact form →</a>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- simple footer : clean and humble -->
-        <footer class="footer">
-            <div class="container">
-                <span>© 2025 Chaves Galang</span><br>
-                <span style="font-size:0.7rem; opacity:0.65;">all projects and labs are original work & educational demonstrations</span>
-            </div>
-        </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <span>© 2026 Chaves Galang</span><br>
+            <span style="font-size: 0.7rem; opacity: 0.65;">All projects and labs are original work & educational demonstrations.</span>
+        </div>
+    </footer>
 
-        <!-- subtle optional accessibility / focus improvements -->
-        <style>
-            a:focus-visible, .project-card:focus-within {
-                outline: 2px solid #1c5f7a;
-                outline-offset: 3px;
-                border-radius: 16px;
-            }
-
-            body {
-                -webkit-font-smoothing: antialiased;
-            }
-
-            .project-link, .contact-list a {
-                cursor: pointer;
-            }
-        </style>
+    <!-- JavaScript for Touch Devices -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('is-flipped');
+                    const isPressed = this.getAttribute('aria-pressed') === 'true';
+                    this.setAttribute('aria-pressed', !isPressed);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
